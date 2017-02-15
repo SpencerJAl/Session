@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Session Management in NODEJS Using Express4.2</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           var email,pass;
+           $("#submit").click(function(){
+               email=$("#email").val();
+               pass=$("#password").val();
+               $.post("http://localhost:3000/login",
+                   {email:email,pass:pass},function(data) {
+
+                       if (data === 'done') {
+                           window.location.href = "/admin";
+                       }
+               });
+           });
+
+
+        });
+
+    </script>
+</head>
+<body>
+<input type="text" size="40" placeholder="Type your Email" id="email"><br/>
+<input type="text" size="40" placeholder="Type your password" id="password"><br/>
+<input type="button" value="submit" id="submit">
+
+
+
+</body>
+</html>
